@@ -112,4 +112,3 @@ class BookingSerializer(serializers.ModelSerializer):
         if total_price <= 0:
             raise serializers.ValidationError("Total price must be greater than 0")
         return total_price
-    

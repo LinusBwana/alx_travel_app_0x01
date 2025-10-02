@@ -5,12 +5,12 @@ from .serializers import PropertySerializer, BookingSerializer
 
 # Create your views here.
 class PropertyViewSet(viewsets.ModelViewSet):
-    queryset = Property.objects.all()
+    queryset = Property.objects.all().order_by('-created_at')
     serializer_class = PropertySerializer
     
 
 class BookingViewSet(viewsets.ModelViewSet):
-    queryset = Booking.objects.all()
+    queryset = Booking.objects.all().order_by('-created_at')
     serializer_class = BookingSerializer
 
     def get_queryset(self):

@@ -24,6 +24,7 @@ class Property(models.Model):
     class Meta:
         verbose_name = 'property'
         verbose_name_plural = 'Properties'
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"{self.name} - {self.location}"
@@ -54,6 +55,9 @@ class Booking(models.Model):
         default='pending'
     )
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def clean(self):
         from django.core.exceptions import ValidationError
